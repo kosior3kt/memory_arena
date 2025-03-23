@@ -11,9 +11,12 @@ int main()
     arena_t new_arena;
     init_arena(&new_arena);
     char* dupa;
-    dupa = (char*)give_me_memory(&new_arena, 256);
-    strcpy(dupa, "does this work?");
-    printf("%s\n", dupa);
+
+	const char* first = "hello ";
+	const char* second = "world";
+	dupa = concat_string(&new_arena, first, second);
+	printf("%s\n", dupa);
+
     free_arena(&new_arena);
 
     return 0;
